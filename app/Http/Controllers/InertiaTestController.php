@@ -30,5 +30,11 @@ class InertiaTestController extends Controller
         $inertiaTest->content = $request->content; 
         $inertiaTest->save();
         
-        return to_route('inertia.index'); }
+        return to_route('inertia.index'); 
     }
+    
+    public function create() 
+    {
+        return Inertia::render('Inertia/Create'); 
+    }
+}
