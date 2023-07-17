@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\InertiaTest;
 
 class InertiaTestController extends Controller
 {
@@ -11,6 +12,7 @@ class InertiaTestController extends Controller
     {
         return Inertia::render('Inertia/Index');
     }
+
     public function show($id)
     {
         //ddを使うとモーダルで確認できる
@@ -20,4 +22,13 @@ class InertiaTestController extends Controller
             'id' => $id
         ]);
     }
-}
+
+    public function store(Request $request)
+    {
+        $inertiaTest = new InertiaTest; 
+        $inertiaTest->title = $request->title; 
+        $inertiaTest->content = $request->content; 
+        $inertiaTest->save();
+        
+        return to_route('inertia.index'); }
+    }
