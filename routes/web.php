@@ -48,4 +48,10 @@ Route::post('/inertia', [InertiaTestController::class, 'store'])->name('inertia.
 
 Route::get('/inertia/create', [InertiaTestController::class, 'create'])->name('inertia.create');
 
+Route::delete('/inertia/{id}', [InertiaTestController::class, 'delete'])->name('inertia.delete');
+
+Route::get('/component-test', function () { 
+    return Inertia::render('ComponentTest'); 
+});
+
 require __DIR__.'/auth.php';
