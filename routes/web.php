@@ -44,4 +44,5 @@ Route::get('/inertia/index', [InertiaTestController::class, 'index'])->name('ine
 
 Route::get('/inertia/show/{id}', [InertiaTestController::class, 'show'])->name('inertia.show');
 
+Route::post('/inertia', [InertiaTestController::class, 'store'])->name('inertia.store');
 require __DIR__.'/auth.php';
