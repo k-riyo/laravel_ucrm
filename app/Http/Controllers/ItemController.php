@@ -27,6 +27,13 @@ class ItemController extends Controller
 
     public function store(StoreItemRequest $request)
     {
+        $request->validate([
+            'name' => ['required', 'max:20'], 
+            'memo' => ['required'],
+            'price' => ['required'],
+        ]);
+
+
         Item::create([
             'name' => $request->name,
             'memo' => $request->memo,
