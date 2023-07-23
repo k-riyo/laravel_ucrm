@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
+import FlashMessage from '@/Components/FlashMessage.vue';
 
 defineProps({
     items: Array
@@ -22,6 +23,7 @@ defineProps({
                     <div class="p-6 text-gray-900">
                         <section class="text-gray-600 body-font">
                             <div class="container px-5 py-8 mx-auto">
+                                <FlashMessage />
                                 <div class="flex pl-4 mt-4 lg:w-2/3 gap-2 w-full mx-auto">
                                     <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Button</button>
                                     <Link as="button" :href="route('items.create')">商品登録</Link>
