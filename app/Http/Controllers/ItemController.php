@@ -13,11 +13,11 @@ class ItemController extends Controller
     public function index()
     {
         $item =  item::select('id', 'name', 'price', 'is_selling')
-        ->get();
+            ->get();
 
         return Inertia::render('Items/Index', [
             'items' => $item
-        ]); 
+        ]);
     }
 
     public function create()
@@ -28,7 +28,7 @@ class ItemController extends Controller
     public function store(StoreItemRequest $request)
     {
         $request->validate([
-            'name' => ['required', 'max:20'], 
+            'name' => ['required', 'max:20'],
             'memo' => ['required'],
             'price' => ['required'],
         ]);
@@ -42,7 +42,7 @@ class ItemController extends Controller
 
         return to_route('items.index')
             ->with([
-                'message' => '登録しました。' , 
+                'message' => '登録しました。',
                 'status' => 'success'
             ]);
     }
@@ -50,19 +50,15 @@ class ItemController extends Controller
     public function show(Item $item)
     {
         return Inertia::render('Items/Show', [
-            'item' => $item 
+            'item' => $item
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Item $item)
     {
-        //
+        return Inertia::render('Items/Edit', [
+            'item' => $item
+        ]);
     }
 
     /**
