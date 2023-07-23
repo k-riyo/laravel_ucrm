@@ -27,24 +27,31 @@ class ItemController extends Controller
 
     public function store(StoreItemRequest $request)
     {
+        $request->validate([
+            'name' => ['required', 'max:20'], 
+            'memo' => ['required'],
+            'price' => ['required'],
+        ]);
+
+
         Item::create([
             'name' => $request->name,
             'memo' => $request->memo,
             'price' => $request->price,
         ]);
 
-        return to_route('items.index');
+        return to_route('items.index')
+            ->with([
+                'message' => '登録しました。' , 
+                'status' => 'success'
+            ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Item  $item
-     * @return \Illuminate\Http\Response
-     */
     public function show(Item $item)
     {
-        //
+        return Inertia::render('Items/Show', [
+            'item' => $item 
+        ]);
     }
 
     /**

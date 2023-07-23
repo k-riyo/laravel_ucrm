@@ -1,13 +1,17 @@
 <script setup>
-    import { reactive } from 'vue'
-    import { Inertia } from '@inertiajs/inertia'
+import { reactive } from 'vue'
+import { Inertia } from '@inertiajs/inertia'
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import InputError from '@/Components/InputError.vue';
+
+defineProps({
+    errors: Object
+})
 
 const form = reactive({ 
     name: null,
     memo: null,
-    price: null
+    price: null,
 })
 
 const storeItem = () => { 
@@ -26,6 +30,7 @@ const storeItem = () => {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                     <InputError v-for="(error, index) in errors" :key="index" :message="error" />
                     <div class="p-6 text-gray-900">
                         <section class="text-gray-600 body-font relative">
                             <form @submit.prevent="storeItem">
