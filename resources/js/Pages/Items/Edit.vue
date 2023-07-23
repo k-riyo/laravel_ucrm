@@ -17,9 +17,10 @@ const form = reactive({
     is_selling: props.item.is_selling
 })
 
-const storeItem = () => {
-    Inertia.post('/items', form)
+const updateItem = id => {
+    Inertia.put(route('items.update', { item: id }), form)
 }
+
 </script>
 
 <template>
@@ -36,7 +37,7 @@ const storeItem = () => {
                 <InputError v-for="(error, index) in errors" :key="index" :message="error" />
                 <div class="p-6 text-gray-900">
                     <section class="text-gray-600 body-font relative">
-                        <form @submit.prevent="storeItem">
+                        <form @submit.prevent="updateItem(form.id)">
                             <div class="container px-5 py-8 mx-auto">
                                 <div class="lg:w-1/2 md:w-2/3 mx-auto">
                                     <div class="flex flex-wrap -m-2">
