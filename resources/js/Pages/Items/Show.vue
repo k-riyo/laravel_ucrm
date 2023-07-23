@@ -16,8 +16,10 @@ const form = reactive({
     price: null,
 })
 
-const storeItem = () => { 
-    Inertia.post('/items', form)
+const deleteItem = id => {
+    Inertia.delete(route('items.destroy', { item: id }), {
+        onBefore: () => confirm('本当に削除しますか?')
+    })
 }
 </script>
 
@@ -75,6 +77,11 @@ const storeItem = () => {
                                         <Link as="button" :href="route('items.edit', { item: item.id })">
                                             編集する
                                         </Link>
+                                    </div>
+                                    <div class="mt-20 bg-red-500">
+                                        <button @click="deleteItem(item.id)" >
+                                            削除する
+                                        </button> 
                                     </div>
                                 </div>
                             </div>
