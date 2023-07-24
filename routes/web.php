@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\InertiaTestController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\CustomerController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -27,7 +28,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/inertia-test', function () {
-    return Inertia::render('InertiaTest'); 
+    return Inertia::render('InertiaTest');
 });
 
 Route::get('/inertia/index', [InertiaTestController::class, 'index'])->name('inertia.index');
@@ -40,10 +41,12 @@ Route::get('/inertia/create', [InertiaTestController::class, 'create'])->name('i
 
 Route::delete('/inertia/{id}', [InertiaTestController::class, 'delete'])->name('inertia.delete');
 
-Route::get('/component-test', function () { 
-    return Inertia::render('ComponentTest'); 
+Route::get('/component-test', function () {
+    return Inertia::render('ComponentTest');
 });
 
-Route::resource('items', ItemController::class) ->middleware(['auth', 'verified']);
+Route::resource('items', ItemController::class)->middleware(['auth', 'verified']);
 
-require __DIR__.'/auth.php';
+Route::resource('customers', CustomerController::class)->middleware(['auth', 'verified']);
+
+require __DIR__ . '/auth.php';
