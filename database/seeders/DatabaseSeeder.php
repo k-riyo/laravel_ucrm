@@ -7,10 +7,13 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run() {
-        $this->call([ 
+    public function run()
+    {
+        $this->call([
             UserSeeder::class,
             ItemSeeder::class,
-        ]); 
+        ]);
+
+        \App\Models\Customer::factory(1000)->create();
     }
 }
