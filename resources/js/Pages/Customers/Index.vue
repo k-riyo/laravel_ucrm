@@ -39,7 +39,7 @@ onMounted(() => {
                             <div class="container px-5 py-8 mx-auto">
                                 <FlashMessage />
                                 <div class="flex pl-4 mt-4 lg:w-2/3 gap-2 w-full mx-auto">
-                                    <Link as="button" :href="route('items.create')">顧客登録</Link>
+                                    <Link as="button" :href="route('customers.create')">顧客登録</Link>
                                 </div>
                                 <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                                     <div>
