@@ -22,3 +22,7 @@
 
 2. ターミナルで`npm run dev`をする
 3. 
+
+## イメージ図
+<img width="762" alt="スクリーンショット 2024-12-30 13 25 29" src="https://github.com/user-attachments/assets/7982191e-eac3-49d6-ac5d-8b214975f2ed" />
+
