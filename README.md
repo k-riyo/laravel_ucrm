@@ -1,10 +1,13 @@
 ## 環境
 - MAMP
-    - PHP8.0
-    - apache(サーバー)
-    - mysql(mariaDB)
-    - laravel9.0
-    - Inertia(laravelなどサーバー側フレームワークの機能を活かしながらSPAを作るためのライブラリ。Vue.jsなどに対応)
+- PHP8.0
+- apache(サーバー)
+- mysql(mariaDB)
+- laravel9.0
+- laravel breeze
+    - Laravelの認証機能を簡単に実装、設定できるパッケージ(Jetstreamより簡単に実装できる)
+- Inertia
+    - laravelなどサーバー側フレームワークの機能を活かしながらSPAを作るためのライブラリ。Vue.jsなどに対応
 - composer (phpライブラリ管理ソフト)
 - Git (バージョン管理ソフト)
 - vite4.0
